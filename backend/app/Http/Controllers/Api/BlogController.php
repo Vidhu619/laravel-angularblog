@@ -48,10 +48,13 @@ class BlogController extends Controller
     }
 
     // User: mark as viewed
-    public function markViewed(Request $request, $id)
-    {
-        $request->user()->viewedBlogs()->attach($id);
-        return response()->json(['message'=>'Marked as read']);
-    }
+  public function markViewed(Request $request, $id)
+{
+    $request->user()
+            ->viewedBlogs()
+            ->syncWithoutDetaching([$id]);
+
+    return response()->json(['message' => 'Marked as read']);
+}
 }
 

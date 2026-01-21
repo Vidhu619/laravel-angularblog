@@ -1,0 +1,64 @@
+<style>
+  .register-container {
+    width: 340px;
+    margin: 80px auto;
+    padding: 25px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+
+  .register-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .register-container input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .register-container input:focus {
+    outline: none;
+    border-color: #1976d2;
+  }
+
+  .register-container button {
+    width: 100%;
+    padding: 10px;
+    background: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  .register-container button:hover {
+    background: #125ca1;
+  }
+
+  .error {
+    color: red;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+</style>
+
+<div class="register-container">
+  <h2>Register</h2>
+
+  <input placeholder="Name" [(ngModel)]="name">
+  <input placeholder="Email" [(ngModel)]="email">
+  <input type="password" placeholder="Password" [(ngModel)]="password">
+
+  <button (click)="register()">Register</button>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+</div>

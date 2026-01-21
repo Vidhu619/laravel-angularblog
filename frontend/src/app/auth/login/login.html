@@ -1,0 +1,79 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .login-container {
+    width: 320px;
+    margin: 80px auto;
+    padding: 25px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    position: relative;
+    z-index: 1;
+  }
+
+  .login-container h2 {
+    margin-bottom: 20px;
+  }
+
+  .login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  .login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .register-link {
+    margin-top: 15px;
+    font-size: 14px;
+    pointer-events: auto;
+  }
+
+  .register-link a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .register-link a:hover {
+    text-decoration: underline;
+  }
+
+  .error {
+    color: red;
+    margin-top: 10px;
+  }
+</style>
+
+<div class="login-container">
+  <h2>Login</h2>
+
+  <input placeholder="Email" [(ngModel)]="email">
+  <input type="password" placeholder="Password" [(ngModel)]="password">
+
+  <button (click)="login()">Login</button>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <p class="register-link">
+    No account?
+    <a routerLink="/register">Register</a>
+  </p>
+</div>
+
